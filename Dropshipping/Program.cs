@@ -14,7 +14,7 @@
               /*  Console.WriteLine("Hello World!"); */
             while (true)
             {
-                 databaseSeeder.CreateOrderTable(order);
+                databaseSeeder.CreateOrderTable(order);
                 databaseSeeder.CreateSupplierTable(supplier); 
                 databaseSeeder.CreateProductTable(products);
                 databaseSeeder.CreateCustumerTable(custumers); 

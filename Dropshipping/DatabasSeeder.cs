@@ -47,7 +47,7 @@ namespace DropShipping
         }
         public List<Order> CreateOrderTable(Order order)
         {
-            connection.Execute(@"CREATE TABLE Order
+            connection.Execute(@"CREATE TABLE `Order`
                               (id INT NOT NULL AUTO_INCREMENT,
                                CustumerId INT NOT NULL,
                                ProductId INT NOT NULL,
@@ -63,7 +63,7 @@ namespace DropShipping
         }
         public List<Supplier> CreateSupplierTable(Supplier supplier)
         {
-            connection.Execute(@"CREATE TABLE Supplier
+            connection.Execute(@"CREATE TABLE `Supplier`
                               (id INT NOT NULL AUTO_INCREMENT,
                                Name VARCHAR(255) NOT NULL,
                                ProductId INT NOT NULL,
