@@ -10,14 +10,14 @@
             DatabaseSeeder databaseSeeder = new DatabaseSeeder(db.connection);
             Order order = new Order();
             Supplier supplier = new Supplier();
-           
-              /*  Console.WriteLine("Hello World!"); */
+            Payment payment = new Payment();
+              databaseSeeder.CreatePaymentTable(payment);
             while (true)
             {
-                databaseSeeder.CreateOrderTable(order);
+                /* databaseSeeder.CreateOrderTable(order);
                 databaseSeeder.CreateSupplierTable(supplier); 
                 databaseSeeder.CreateProductTable(products);
-                databaseSeeder.CreateCustumerTable(custumers); 
+                databaseSeeder.CreateCustumerTable(custumers);  */
                 
             }
         }
