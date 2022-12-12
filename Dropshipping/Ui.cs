@@ -6,23 +6,17 @@ namespace DropShipping
 
 
     public class Ui
-    {
+   {
 
-        private Products ChosenProduct()
+     public Products ChooseProduct()
         {
-            
-            string prompt = "Choose a product!";
-            string[] options = new string[] { "Choose", "Exit" };
-
-            int selectedIndex = new Menu(prompt, options).Run();
-
             DatabasManager db = new DatabasManager();
-            Products products = new Products();
-            db.InsertProducts(products);
-            return products;
+           Console.Clear();
+           List<Products> products = db.GetProducts();
 
-
+           string[] options = products.Select(p => p.Name).ToArray();
+           int selectedIndex = new Menu("Choose a product!", options).Run();
+           return products[selectedIndex];
         }
-
-    }
+   }
 }
