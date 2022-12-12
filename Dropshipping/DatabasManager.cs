@@ -23,20 +23,21 @@ namespace DropShipping
             }
         }
 
-      /*   public List <Products> InsertProducts(Products products)
+        public void InsertProducts(Products products)
         {
 
-         string sql = @"
+            string sql = @"
                       INSERT INTO `products`
                       (name, price, description, isHot, onSale, image, weight, sellingPrice, manufacturer)
-                      VALUES 
-                      ()
-                      ";
-                      
-                      
-       
+                      VALUES
+                      ('Knife', '150', 'This is a very sharp knife!', TRUE, FALSE, 'No', '0.7', '250', 'Alibaba'";
+            
+            
+            connection.Execute(sql, products);
 
-        } */
+            
+
+        }
     }
 
 }

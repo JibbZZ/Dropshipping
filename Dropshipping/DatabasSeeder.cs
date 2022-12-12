@@ -47,7 +47,7 @@ namespace DropShipping
         }
         public List<Order> CreateOrderTable(Order order)
         {
-            connection.Execute(@"CREATE TABLE Order
+            connection.Execute(@"CREATE TABLE `Order`
                               (id INT NOT NULL AUTO_INCREMENT,
                                CustumerId INT NOT NULL,
                                ProductId INT NOT NULL,
@@ -63,7 +63,7 @@ namespace DropShipping
         }
         public List<Supplier> CreateSupplierTable(Supplier supplier)
         {
-            connection.Execute(@"CREATE TABLE Supplier
+            connection.Execute(@"CREATE TABLE `Supplier`
                               (id INT NOT NULL AUTO_INCREMENT,
                                Name VARCHAR(255) NOT NULL,
                                ProductId INT NOT NULL,
@@ -71,6 +71,20 @@ namespace DropShipping
                                OrderId INT NOT NULL,
                                PRIMARY KEY (id));");
             return connection.Query<Supplier>("SELECT * FROM Supplier").ToList();
+        }
+
+        public List<Payment> CreatePaymentTable(Payment payment)
+        {
+            connection.Execute(@"CREATE TABLE `Payment`
+                              (id INT NOT NULL AUTO_INCREMENT,
+                               CustumerId INT NOT NULL,
+                               OrderId INT NOT NULL,
+                               Amount INT NOT NULL,
+                               Provider VARCHAR(255) NOT NULL,
+                               Status VARCHAR(255) NOT NULL,
+                               CreatedAt INT NOT NULL,
+                               PRIMARY KEY (id));");
+            return connection.Query<Payment>("SELECT * FROM Payment").ToList();
         }
     }
 }
