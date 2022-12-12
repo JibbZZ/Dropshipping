@@ -4,6 +4,7 @@ namespace DropShipping
     {
         public int Id { get; set; }
         public int CustumerId { get; set; }
+        public int PaymentId { get; set; }
         public int ProductId { get; set; }
         public int OrderDate { get; set; }
         public int OrderStatus { get; set; }
