@@ -30,13 +30,17 @@ namespace DropShipping
                       INSERT INTO `products`
                       (name, price, description, isHot, onSale, image, weight, sellingPrice, manufacturer)
                       VALUES
-                      ('Knife', '150', 'This is a very sharp knife!', TRUE, FALSE, 'No', '0.7', '250', 'Alibaba'";
+                      (@Name, @Price, @Description, @IsHot, @OnSale, @Image, @Weight, @SellingPrice, @Manufacturer)";
             
             
             connection.Execute(sql, products);
 
             
 
+        }
+        public List<Products> GetProducts()
+        {
+            return connection.Query<Products>("SELECT * FROM Products").ToList();
         }
     }
 
