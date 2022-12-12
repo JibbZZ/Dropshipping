@@ -12,14 +12,17 @@
             Supplier supplier = new Supplier();
             Payment payment = new Payment();
             new StartMenu().RunMainMenu();
+            Ui ui = new Ui();
 
             
+                ui.ChooseProduct();
             
            
              
             while (true)
             {
-              
+                
+
             
             }
         }
