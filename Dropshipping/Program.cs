@@ -6,7 +6,7 @@
         {
             DatabasManager db = new DatabasManager();
             Products products = new Products();
-            Custumers custumers = new Custumers();
+            Customers custumers = new Customers();
             DatabaseSeeder databaseSeeder = new DatabaseSeeder(db.connection);
             Order order = new Order();
             Supplier supplier = new Supplier();
@@ -15,13 +15,15 @@
             Ui ui = new Ui();
 
             
-                ui.ChooseProduct();
             
            
              
             while (true)
             {
-                
+               Products product = ui.ChooseProduct();
+               ui.Showproduct(product);
+               //order.AddProduct(product);
+               db.UpdateCustumers(custumers);
 
             
             }
