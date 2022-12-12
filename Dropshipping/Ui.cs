@@ -18,5 +18,11 @@ namespace DropShipping
            int selectedIndex = new Menu("Choose a product!", options).Run();
            return products[selectedIndex];
         }
-   }
+
+        internal void Showproduct(Products product)
+        {
+            Console.WriteLine($"Name: {product.Name}, Price: {product.Price}, Description: {product.Description}, IsHot: {product.IsHot}, OnSale: {product.OnSale}, Image: {product.Image}, Weight: {product.Weight}, SellingPrice: {product.SellingPrice}, Manufacturer: {product.Manufacturer}");
+            Console.ReadKey();
+        }
+    }
 }
