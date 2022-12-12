@@ -28,7 +28,7 @@ namespace DropShipping
                                PRIMARY KEY (id));");
             return connection.Query<Products>("SELECT * FROM Products").ToList();
         }
-        public List<Custumers> CreateCustumerTable(Custumers custumers)
+        public List<Customers> CreateCustumerTable(Customers custumers)
         {
             connection.Execute(@"CREATE TABLE Custumers
                               (id INT NOT NULL AUTO_INCREMENT,
@@ -41,7 +41,7 @@ namespace DropShipping
                                isMale VARCHAR(255) NOT NULL,
                                country VARCHAR(255) NOT NULL,
                                PRIMARY KEY (id));");
-            return connection.Query<Custumers>("SELECT * FROM Custumers").ToList();
+            return connection.Query<Customers>("SELECT * FROM Custumers").ToList();
 
 
         }
