@@ -37,6 +37,13 @@ namespace DropShipping
         {
             return connection.Query<Products>("SELECT * FROM Products").ToList();
         }
+        //här är en metod som hämtar alla Customers från databasen
+
+        public List<Customers> GetCustumers()
+        {
+            return connection.Query<Customers>("SELECT * FROM Custumers").ToList();
+        }
+
         //här är en metod som uppdaterar Customers
         public void UpdateCustumers(Customers custumers)
         {
@@ -44,9 +51,19 @@ namespace DropShipping
             string sql = @"
                       UPDATE `custumers`
                       SET userName = @UserName, password = @Password
-                      WHERE id = '1'";
+                      WHERE id = @Id";
             connection.Execute(sql, custumers);
         }
+        //här är en metod som inner joinar Products och order
+       /*  public List<Products> GetProductsAndOrder(Products products, Order order)
+        {
+            return connection.Query<Products>(@"SELECT * FROM Order o
+                                              INNER JOIN Products p 
+                                              ON o.ProductId = p.id").ToList();
+        } */
+
+        
+
     }
 }
 
