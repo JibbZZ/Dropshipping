@@ -21,6 +21,8 @@ namespace DropShipping
 
         internal void Showproduct(Products product)
         {
+            Console.Clear();
+
             Console.WriteLine($"Name: {product.Name}, Price: {product.Price}, Description: {product.Description}, IsHot: {product.IsHot}, OnSale: {product.OnSale}, Image: {product.Image}, Weight: {product.Weight}, SellingPrice: {product.SellingPrice}, Manufacturer: {product.Manufacturer}");
             Console.ReadKey();
         }
