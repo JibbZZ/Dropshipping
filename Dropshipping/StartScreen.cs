@@ -8,7 +8,7 @@ namespace DropShipping
 
 
             string prompt = @"Welcome to the website! ";
-            string[] options = { "Buy products", "About", "Exit" };
+            string[] options = { "Buy products", "Shopping Cart","About", "Exit" };
 
             int _choice = new Menu(prompt, options).Run();
 
@@ -18,20 +18,33 @@ namespace DropShipping
                     BuyProduct();
                     Console.Clear();
                     break;
-
                 case 1:
-                    About();
+                    ShoppingCart();
                     break;
 
                 case 2:
+                    About();
+                    break;
+
+                case 3:
                     ExitGame();
                     break;
             }
 
         }
-        public void BuyProduct()
+    public void BuyProduct()
         {
-
+            Ui ui = new Ui();
+            Products product = ui.ChooseProduct();
+            ui.Showproduct(product);
+            ui.CreateProduct(product);
+        }
+        public void ShoppingCart()
+        {
+            Ui ui = new Ui();
+            Products product = ui.ShoppingCart();
+            
+            
         }
 
         public void ExitGame()
