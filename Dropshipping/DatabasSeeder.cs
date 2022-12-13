@@ -86,5 +86,12 @@ namespace DropShipping
                                PRIMARY KEY (id));");
             return connection.Query<Payment>("SELECT * FROM Payment").ToList();
         }
+        public List<Products_To_Supplier> CreateProducts_To_SupplierTable(Products_To_Supplier products_To_Supplier)
+        {
+            connection.Execute(@"CREATE TABLE `Products_To_Supplier`
+                              (ProductId INT NOT NULL,
+                               SupplierId INT NOT NULL);");
+            return connection.Query<Products_To_Supplier>("SELECT * FROM Products_To_Supplier").ToList();
+        }
     }
 }
