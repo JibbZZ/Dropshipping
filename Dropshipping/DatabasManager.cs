@@ -6,12 +6,10 @@ namespace DropShipping
 
     public class DatabasManager
     {
-
         public MySqlConnection connection;
 
         public DatabasManager()
         {
-
             connection = new MySqlConnection("Server=localhost;Database=Dropshipping;Uid=root;");
             try
             {
@@ -25,7 +23,6 @@ namespace DropShipping
 //här är en metod som lägger till produkter i databasen
         public void InsertProducts(Products products)
         {
-
             string sql = @"
                       INSERT INTO `products`
                       (name, price, description, isHot, onSale, image, weight, sellingPrice, manufacturer)
@@ -34,9 +31,6 @@ namespace DropShipping
 
 
             connection.Execute(sql, products);
-
-
-
         }
         //här är en metod som hämtar alla produkter från databasen
         public List<Products> GetProducts()
@@ -52,10 +46,7 @@ namespace DropShipping
                       SET userName = @UserName, password = @Password
                       WHERE id = '1'";
             connection.Execute(sql, custumers);
-
-
         }
-
     }
 }
 
