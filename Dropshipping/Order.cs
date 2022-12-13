@@ -1,6 +1,6 @@
 namespace DropShipping
 {
-    class Order
+    public class Order
     {
         public int Id { get; set; }
         public int CustumerId { get; set; }
@@ -12,5 +12,8 @@ namespace DropShipping
         public int ShippingDate { get; set; }
         public int ShippingStatus { get; set; }
 
+   
     }
+    
+
 }
