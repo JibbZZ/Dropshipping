@@ -93,5 +93,12 @@ namespace DropShipping
                                SupplierId INT NOT NULL);");
             return connection.Query<Products_To_Supplier>("SELECT * FROM Products_To_Supplier").ToList();
         }
+        public List<Products_To_Order> CreateProducts_To_OrderTable(Products_To_Order products_To_Order)
+        {
+            connection.Execute(@"CREATE TABLE `Products_To_Order`
+                              (ProductId INT NOT NULL,
+                               OrderId INT NOT NULL);");
+            return connection.Query<Products_To_Order>("SELECT * FROM Products_To_Order").ToList();
+        }
     }
 }
