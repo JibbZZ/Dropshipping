@@ -14,9 +14,9 @@ namespace DropShipping
             DatabasManager db = new DatabasManager();
             Console.Clear();
             List<Products> products = db.GetProducts();
-            
             string[] options = products.Select(p => p.Name).ToArray();
             int selectedIndex = new Menu("Choose a product!", options).Run();
+            Console.Clear();
             return products[selectedIndex];
         }
         public Products ShoppingCart()
@@ -30,7 +30,8 @@ namespace DropShipping
         {
             DatabasManager db = new DatabasManager();
             db.InsertProducts(product);
-            Console.Clear();
+            List<Products> products = db.GetProducts();
+            products = ShopingCartProducts;
             Console.WriteLine($"Name: {product.Name}, Price: {product.Price}, Description: {product.Description}, IsHot: {product.IsHot}, OnSale: {product.OnSale}, Image: {product.Image}, Weight: {product.Weight}, SellingPrice: {product.SellingPrice}, Manufacturer: {product.Manufacturer}");
             Console.ReadKey();
         }
