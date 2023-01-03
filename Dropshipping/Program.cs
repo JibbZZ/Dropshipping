@@ -26,10 +26,10 @@
                databaseSeeder.CreateProducts_To_SupplierTable(products_To_Supplier); */
                //order.AddProduct(product);
               /*  db.GetProductsAndOrder(products, order); */
-               Products product = ui.ChooseProduct();
+              Products product = ui.ChooseProduct();
                new StartMenu().RunMainMenu();
                ui.Showproduct(product);
-               ui.CreateProduct(product);
+              // ui.CreateProduct(product);
                db.UpdateCustumers(custumers);
 
             

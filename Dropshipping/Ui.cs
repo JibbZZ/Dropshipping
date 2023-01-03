@@ -19,24 +19,10 @@ namespace DropShipping
             Console.Clear();
             return products[selectedIndex];
         }
-        public Products ShoppingCart()
-        {
-            string[] options = ShopingCartProducts.Select(p => p.Name).ToArray();
-            int selectedIndex = new Menu("Here is your items:", options).Run();
-            return ShopingCartProducts[selectedIndex];
-        }
-        //show product in Shopping Cart
-        public void ShowProductInShoppingCart(Products product)
-        {
-            DatabasManager db = new DatabasManager();
-            db.InsertProducts(product);
-            List<Products> products = db.GetProducts();
-            products = ShopingCartProducts;
-            Console.WriteLine($"Name: {product.Name}, Price: {product.Price}, Description: {product.Description}, IsHot: {product.IsHot}, OnSale: {product.OnSale}, Image: {product.Image}, Weight: {product.Weight}, SellingPrice: {product.SellingPrice}, Manufacturer: {product.Manufacturer}");
-            Console.ReadKey();
-        }
+         
+        
         //buy product
-        public void CreateProduct(Products product)
+       /*  public void CreateProduct(Products product)
         {
             DatabasManager db = new DatabasManager();
             db.InsertProducts(product);
@@ -44,24 +30,34 @@ namespace DropShipping
             Console.Clear();
             Console.WriteLine("You bought a product!");
             Console.ReadKey();
-        }
-         public void BuyProduct(Products product)
-        {
-
-           ShopingCartProducts.Add(product);
-        }
+        } */
+       
 
         internal void Showproduct(Products product)
         {
             Console.Clear();
-
             Console.WriteLine($"Name: {product.Name}, Price: {product.Price}, Description: {product.Description}, IsHot: {product.IsHot}, OnSale: {product.OnSale}, Image: {product.Image}, Weight: {product.Weight}, SellingPrice: {product.SellingPrice}, Manufacturer: {product.Manufacturer}");
+            Console.WriteLine("Do you want to buy this product? (y/n)");
+            string answer = Console.ReadLine();
+            if (answer == "y")
+            {
+               AddProductToShopingCart(product);
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("You didn't buy the product!");
+                Console.ReadKey();
+            }
             Console.ReadKey();
         }
-        public void AddProduct(Products product)
+        public void AddProductToShopingCart(Products product)
         {
-            DatabasManager db = new DatabasManager();
-            db.InsertProducts(product);
+            ShopingCartProducts.Add(product);
+            Console.Clear();
+            Console.WriteLine("You bought a product!");
+            Console.ReadKey();
         }
+        
     }
 }

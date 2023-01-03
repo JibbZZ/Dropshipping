@@ -32,6 +32,15 @@ namespace DropShipping
 
             connection.Execute(sql, products);
         }
+        public void InsertOrder(Order order)
+        {
+            string sql = @"
+                      INSERT INTO `order`
+                      (customerId, orderDate, orderStatus, orderPrice, shippingDate, shippingStatus)
+                      VALUES
+                      (@CustomerId, @OrderDate, @OrderStatus, @OrderPrice, @ShippingDate, @ShippingStatus)";
+                      }
+      
         //här är en metod som hämtar alla produkter från databasen
         public List<Products> GetProducts()
         {
@@ -55,14 +64,13 @@ namespace DropShipping
             connection.Execute(sql, custumers);
         }
         //här är en metod som inner joinar Products och order
-       /*  public List<Products> GetProductsAndOrder(Products products, Order order)
+         public List<Products> GetProductsAndOrder(Products products, Order order)
         {
             return connection.Query<Products>(@"SELECT * FROM Order o
                                               INNER JOIN Products p 
                                               ON o.ProductId = p.id").ToList();
-        } */
+        } 
 
-        
 
     }
 }
