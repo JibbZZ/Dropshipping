@@ -3,12 +3,17 @@ namespace DropShipping
 
     public class StartMenu
     {
+        private Ui ui;
+
+        public StartMenu(Ui ui)
+        {
+            this.ui = ui;
+        }
+
         public void RunMainMenu()
         {
-
-
             string prompt = @"Welcome to the website! ";
-            string[] options = { "Buy products", "About", "Shopping Cart", "Exit" };
+            string[] options = { "Buy products", "About", "Shopping Cart", "Create Order", "Exit" };
 
             int _choice = new Menu(prompt, options).Run();
 
@@ -22,11 +27,14 @@ namespace DropShipping
                 case 1:
                     About();
                     break;
-                case 2:
-                    ShoppingCart();
-                    break;
-
+                 case 2:
+                    ui.ShowShoppingCart();
+                    break; 
                 case 3:
+                    ui.CreateOrder();
+                    break;
+               
+                case 4:
                     ExitGame();
                     break;
             }
@@ -34,12 +42,11 @@ namespace DropShipping
         }
     public void BuyProduct()
         {
-            Ui ui = new Ui();
-            Products product = ui.ChooseProduct();
+            Product product = ui.ChooseProduct();
             ui.Showproduct(product);
             //ui.CreateProduct(product);
         }
-      
+
         public void ExitGame()
         {
             Console.Clear();
@@ -47,18 +54,7 @@ namespace DropShipping
             Thread.Sleep(500);
             Environment.Exit(0);
         }
-        public void ShoppingCart()
-        {
-            Console.Clear();
-            Console.WriteLine("This is your shopping cart");
-            Console.ReadKey();
-            Console.WriteLine("Press any key to go back to the main menu");
-            Console.ReadKey();
-            Console.Clear();
-            RunMainMenu();
-
-        }
-
+    
         private void About()
         {
             Console.Clear();
