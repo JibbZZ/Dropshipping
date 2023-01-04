@@ -84,8 +84,6 @@ namespace DropShipping
             Console.WriteLine(product.Name + " added to shopping cart");
             Console.ReadKey();
             DatabasManager db = new DatabasManager();
-            Console.WriteLine("You bought a product!");
-            Console.ReadKey();
             Console.WriteLine("Press any key to go back to the main menu");
             Console.ReadKey();
             
