@@ -12,7 +12,7 @@ namespace DropShipping
             this.connection = connection;
 
         }
-        public List<Products> CreateProductTable(Products products)
+        public List<Product> CreateProductTable(Product products)
         {
             connection.Execute(@"CREATE TABLE Products
                               (id INT NOT NULL AUTO_INCREMENT,
@@ -26,7 +26,7 @@ namespace DropShipping
                                sellingPrice INT NOT NULL,
                                manufacturer VARCHAR(255) NOT NULL,
                                PRIMARY KEY (id));");
-            return connection.Query<Products>("SELECT * FROM Products").ToList();
+            return connection.Query<Product>("SELECT * FROM Products").ToList();
         }
         public List<Customers> CreateCustumerTable(Customers custumers)
         {
