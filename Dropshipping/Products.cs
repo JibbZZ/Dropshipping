@@ -1,6 +1,6 @@
 namespace DropShipping
 {
-public class Products
+public class Product
 {
     public int Id { get; set; }
     public string Name { get; set; } = "";
@@ -13,6 +13,6 @@ public class Products
     public int SellingPrice { get; set; }
     public string Manufacturer { get; set; } = "";
 
- public Products(){}
+ public Product(){}
 }
 }
